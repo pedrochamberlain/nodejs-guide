@@ -28,7 +28,7 @@ eventEmitter.emit('lunch')
 const { readFile, readFileSync } = require('fs')
 console.time('ASYNCHRONOUS')
 console.log('ASYNCHRONOUS – This console.log will print exactly before the example file starts being read.\n')
-readFile('./10mb.txt', 'utf8', (err, txt) => {
+readFile('./src/assets/10mb.txt', 'utf8', (err, txt) => {
     console.log('ASYNCHRONOUS – This console.log will print only after the example file is completely read.\n\n')
     console.timeEnd('ASYNCHRONOUS')
 })
@@ -36,7 +36,7 @@ readFile('./10mb.txt', 'utf8', (err, txt) => {
 
 console.log('SYNCHRONOUS – This console.log will print exactly before the example file starts being read.')
 console.time('SYNCHRONOUS')
-readFileSync('./example.txt', 'utf8')
+readFileSync('./src/assets/example.txt', 'utf8')
 console.timeEnd('SYNCHRONOUS')
 console.log('SYNCHRONOUS – This console.log will print after the example file starts being read, whether it has finished or not.\n')
 
@@ -47,7 +47,7 @@ const app = express()
 const port = 8080
 
 app.get('/', (req, res) => {
-    readFile('./home.html', 'utf8', (err, html) => {
+    readFile('../public/home.html', 'utf8', (err, html) => {
         if (err) res.status(500).send('something went wrong.')
 
         res.send(html)
