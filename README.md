@@ -9,6 +9,14 @@
 
 Node.js can do a lot. When you visit a URL on the Internet, that points to your server. When the request is received, we can use Node to handle the request and read a file from the server's filesystem and then respond back to the client so they can view the HTML in browser.
 
+<p align="center">
+  <img width="600px" src="https://i.imgur.com/SwZq3c7.jpg">
+</p>
+
+Compared to traditional web-serving techniques where each request spawns a new thread, taking up system RAM and eventually maxing-out at the amount of RAM available, Node.js operates on a single-thread, using non-blocking I/O calls, allowing it to support tens of thousands of concurrent connections held in the event loop. 
+
+When Node.js starts, it initializes the event loop, processes the provided input script (or drops into the REPL, which is not covered in this document) which may make async API calls, schedule timers, or call process.nextTick(), then begins processing the event loop.
+
 ## Setup
 [Download Node.js on it's official website](https://nodejs.org/en/).
 
